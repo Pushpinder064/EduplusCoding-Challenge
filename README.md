@@ -13,7 +13,7 @@ bash
 git clone https://github.com/Pushpinder064/EduplusCoding-Challenge.git
 2. Set Up the Backend
 cd backend
-# Make a new .env with your database URL and JWT secret
+Make a new .env with your database URL and JWT secret
 npm install
 npx prisma migrate dev // migrate your db , if you have existing db , use npx prisma db pull
 npm start
