@@ -1,0 +1,132 @@
+.users-admin-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.users-admin-container h2 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 28px;
+}
+
+.users-filter-bar {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
+  background: #f3f6fa;
+  padding: 16px 18px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(37,99,235,0.05);
+}
+
+.users-filter-bar input,
+.users-filter-bar select {
+  flex: 0 0 180px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #fff;
+}
+
+.users-filter-bar input:focus,
+.users-filter-bar select:focus {
+  border-color: #4b8df8;
+}
+
+.users-filter-bar button {
+  padding: 10px 24px;
+  background: #4b8df8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  height: 42px;
+  margin-left: 10px;
+}
+
+.users-filter-bar button:hover {
+  background: #2563eb;
+}
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 18px;
+}
+
+.users-list li {
+  padding: 14px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.users-list li:last-child {
+  border-bottom: none;
+}
+
+.users-list .user-rating {
+  color: #22bb33;
+  margin-left: 12px;
+  font-size: 0.98rem;
+}
+.users-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7faff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(37,99,235,0.04);
+}
+
+.users-table th, .users-table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.users-table th {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 0.5px;
+}
+
+.users-table tr {
+  border-bottom: 1px solid #e3e8ee;
+  transition: background 0.13s;
+}
+
+.users-table tr:last-child {
+  border-bottom: none;
+}
+
+.users-table td {
+  color: #333;
+  font-size: 1.03rem;
+}
+
+.users-table tr:hover {
+  background: #eaf0fb;
+}

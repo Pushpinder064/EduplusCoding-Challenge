@@ -13,34 +13,74 @@ router.put('/password', auth(['USER', 'STORE_OWNER', 'ADMIN']), async (req, res)
   res.json({ message: "Password updated" });
 });
 
-// Get all stores (with search)
+
+// // GET /api/user/stores
+// router.get('/stores', auth(['USER']), async (req, res) => {
+//   const stores = await req.prisma.store.findMany({
+//     include: {
+//       ratings: true // fetch all ratings for each store
+//     }
+//   });
+
+//   // Calculate average rating and userRating for current user
+//   const result = stores.map(store => {
+//     const ratings = store.ratings;
+//     const avgRating =
+//       ratings.length > 0
+//         ? ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length
+//         : null;
+
+//     // Find current user's rating if any
+//     const userRatingObj = ratings.find(r => r.userId === req.user.id);
+
+//     return {
+//       id: store.id,
+//       name: store.name,
+//       address: store.address,
+//       overallRating: avgRating ? avgRating.toFixed(1) : "No ratings",
+//       userRating: userRatingObj ? userRatingObj.rating : null
+//     };
+//   });
+
+//   res.json(result);
+// });
+
+// GET /api/user/stores with optional filtering by name and address
 router.get('/stores', auth(['USER']), async (req, res) => {
   const { name, address } = req.query;
+
   const where = {};
   if (name) where.name = { contains: name, mode: 'insensitive' };
   if (address) where.address = { contains: address, mode: 'insensitive' };
+
   const stores = await req.prisma.store.findMany({
     where,
     include: {
-      ratings: true,
-      owner: { select: { name: true, email: true } }
+      ratings: true
     }
   });
-  // Calculate overall rating for each store
+
   const result = stores.map(store => {
-    const avgRating = store.ratings.length
-      ? (store.ratings.reduce((a, b) => a + b.rating, 0) / store.ratings.length).toFixed(2)
+    const ratings = store.ratings;
+    const avgRating = ratings.length > 0
+      ? ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length
       : null;
+
+    const userRatingObj = ratings.find(r => r.userId === req.user.id);
+
     return {
       id: store.id,
       name: store.name,
       address: store.address,
-      owner: store.owner,
-      overallRating: avgRating
+      overallRating: avgRating ? avgRating.toFixed(1) : "No ratings",
+      userRating: userRatingObj ? userRatingObj.rating : null
     };
   });
+
   res.json(result);
 });
+
+
 
 // Submit or update rating
 router.post('/rate', auth(['USER']), async (req, res) => {

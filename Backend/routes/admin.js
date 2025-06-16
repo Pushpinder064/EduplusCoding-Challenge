@@ -3,6 +3,7 @@ const auth = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 
+
 // Dashboard stats
 router.get('/dashboard', auth(['ADMIN']), async (req, res) => {
   const userCount = await req.prisma.user.count();
@@ -31,15 +32,35 @@ router.post('/users', auth(['ADMIN']), async (req, res) => {
   }
 });
 
+// Get all store owners
+router.get('/store-owners', auth(['ADMIN']), async (req, res) => {
+  const owners = await req.prisma.user.findMany({
+    where: { role: 'STORE_OWNER' },
+    select: { id: true, name: true, email: true }
+  });
+  res.json(owners);
+});
+
+
 // Add new store
 router.post('/stores', auth(['ADMIN']), async (req, res) => {
   const { name, address, ownerId } = req.body;
   if (!name || !address || !ownerId) return res.status(400).json({ error: "Missing fields" });
   if (address.length > 400) return res.status(400).json({ error: "Address too long" });
-  const store = await req.prisma.store.create({
-    data: { name, address, ownerId }
-  });
-  res.json(store);
+
+  try {
+    const store = await req.prisma.store.create({
+      data: {
+        name,
+        address,
+        ownerId: Number(ownerId) // <-- Convert to integer here!
+      }
+    });
+    res.json(store);
+  } catch (err) {
+    console.error("Error creating store:", err);
+    res.status(500).json({ error: "Failed to create store" });
+  }
 });
 
 // List stores (with filters)

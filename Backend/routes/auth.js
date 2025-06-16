@@ -48,7 +48,8 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1d' });
 
-    res.json({ token, user: { id: user.id, name: user.name, role: user.role } });
+    // 👇 Add email here!
+    res.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
   } catch (err) {
     res.status(500).json({ error: 'Login failed' });
   }
@@ -75,7 +76,7 @@ router.post('/register-admin', async (req, res) => {
 });
 
 // Login Admin
-router.post('/login', async (req, res) => {
+router.post('/login-admin', async (req, res) => {
   const { email, password } = req.body;
   const user = await req.prisma.user.findUnique({ where: { email } });
   if (!user || user.role !== 'ADMIN') return res.status(401).json({ error: "Invalid credentials" });

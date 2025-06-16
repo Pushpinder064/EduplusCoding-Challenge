@@ -1,0 +1,78 @@
+.stores-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.stores-container h2 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 24px;
+}
+
+.stores-filter-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.stores-filter-bar input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.stores-filter-bar input:focus {
+  border-color: #4b8df8;
+}
+
+.stores-filter-bar button {
+  padding: 8px 18px;
+  background: #4b8df8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.stores-filter-bar button:hover {
+  background: #2563eb;
+}
+
+.stores-list {
+  list-style: none;
+  padding: 0;
+}
+
+.stores-list li {
+  padding: 14px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stores-list li:last-child {
+  border-bottom: none;
+}
+
+.stores-list span {
+  font-weight: 500;
+}
+
+.stores-list .user-rating {
+  color: #22bb33;
+  margin-left: 12px;
+  font-size: 0.98rem;
+}

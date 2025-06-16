@@ -22,26 +22,31 @@ router.get('/my', auth(['STORE_OWNER']), async (req, res) => {
   res.json(result);
 });
 
-// ======= CREATE STORE ENDPOINT =======
-router.post('/create', auth(['STORE_OWNER']), async (req, res) => {
-  const { name, address } = req.body;
 
-  // Validation
-  if (!name || !address) return res.status(400).json({ error: "Name and address are required." });
-  if (address.length > 400) return res.status(400).json({ error: "Address too long." });
+// Create a new store and assign a store owner
+router.post('/stores', auth(['ADMIN']), async (req, res) => {
+  const { name, address, ownerId } = req.body;
+  if (!name || !address || !ownerId) {
+    return res.status(400).json({ error: "Missing fields" });
+  }
+  if (address.length > 400) {
+    return res.status(400).json({ error: "Address too long" });
+  }
 
   try {
     const store = await req.prisma.store.create({
       data: {
         name,
         address,
-        ownerId: req.user.id
+        ownerId: Number(ownerId) // Ensure ownerId is an integer
       }
     });
-    res.status(201).json(store);
+    res.json(store);
   } catch (err) {
-    res.status(500).json({ error: "Could not create store." });
+    console.error("Error creating store:", err);
+    res.status(500).json({ error: "Failed to create store" });
   }
 });
+
 
 module.exports = router;

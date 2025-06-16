@@ -1,0 +1,22 @@
+.dashboard-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f7faff;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 32px 24px;
+}
+
+.dashboard-container h2 {
+  color: #2563eb;
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(37,99,235,0.05);
+}
