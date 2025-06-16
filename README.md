@@ -1,12 +1,11 @@
-screenshots:![Screenshot (29)](https://github.com/user-attachments/assets/e3d1d2d0-6c19-4050-b46a-424ec8b272b4)
-![Screenshot (30)](https://github.com/user-attachments/assets/4222b1eb-6d23-4f3a-b359-a02356b6cc2b)
-![Screenshot (31)](https://github.com/user-attachments/assets/cea114f3-e9c0-4c40-b097-fc157e1cf428)
-![Screenshot (33)](https://github.com/user-attachments/assets/788a992e-6a99-48ab-9046-3bf5f15ccc55)
-![Screenshot (34)](https://github.com/user-attachments/assets/d2a28913-0701-49cd-86e8-71ecb53e2cbd)
-
-
-Working Video link:https://drive.google.com/file/d/1ZiqU8Ij3G-4JsGHPAtwYV_2Ian0uoui-/view?usp=sharing
-
+---------------------------------------------------------------------------------------------------------------
+WORKING VIDEO LINK OF PROJECT :https://drive.google.com/file/d/1ZiqU8Ij3G-4JsGHPAtwYV_2Ian0uoui-/view?usp=sharing
+---------------------------------------------------------------------------------------------------------------
+screenshots:![image](https://github.com/user-attachments/assets/269ff433-dc17-44b4-a4f2-8b6b4456d3a3)
+![image](https://github.com/user-attachments/assets/17bf327a-ed86-4f0f-b04c-a040603a15ec)
+![image](https://github.com/user-attachments/assets/32f662ea-26ec-4ffe-98a6-f53efcf033e1)
+![image](https://github.com/user-attachments/assets/308b4fbd-eab1-4cb5-9d41-739d0a29f38d)
+![image](https://github.com/user-attachments/assets/eca9be50-3859-41c2-8f15-a830e6aaf0ae)
 
 Getting Started
 1. Clone the Repository
