@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, { expiresIn: '1d' });
 
-    // 👇 Add email here!
+    
     res.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
   } catch (err) {
     res.status(500).json({ error: 'Login failed' });
@@ -87,7 +87,7 @@ router.post('/login-admin', async (req, res) => {
 });
 
 
-// ========== STORE OWNER REGISTRATION ==========
+//  Store owner
 router.post('/register-store-owner', async (req, res) => {
   const { name, email, password, address } = req.body;
   if (!/^.{20,60}$/.test(name)) return res.status(400).json({ error: "Name must be 20-60 chars" });
@@ -118,7 +118,7 @@ router.post('/register-store-owner', async (req, res) => {
   }
 });
 
-// ========== STORE OWNER LOGIN ==========
+// store owner
 router.post('/login-store-owner', async (req, res) => {
   const { email, password } = req.body;
   try {

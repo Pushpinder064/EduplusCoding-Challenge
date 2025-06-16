@@ -2,7 +2,7 @@ const express = require('express');
 const auth = require('../middleware/auth');
 const router = express.Router();
 
-// Store owner dashboard: ratings for their store(s)
+// Store owner dashboard 
 router.get('/my', auth(['STORE_OWNER']), async (req, res) => {
   const stores = await req.prisma.store.findMany({
     where: { ownerId: req.user.id },

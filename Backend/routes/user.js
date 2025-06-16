@@ -14,37 +14,6 @@ router.put('/password', auth(['USER', 'STORE_OWNER', 'ADMIN']), async (req, res)
 });
 
 
-// // GET /api/user/stores
-// router.get('/stores', auth(['USER']), async (req, res) => {
-//   const stores = await req.prisma.store.findMany({
-//     include: {
-//       ratings: true // fetch all ratings for each store
-//     }
-//   });
-
-//   // Calculate average rating and userRating for current user
-//   const result = stores.map(store => {
-//     const ratings = store.ratings;
-//     const avgRating =
-//       ratings.length > 0
-//         ? ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length
-//         : null;
-
-//     // Find current user's rating if any
-//     const userRatingObj = ratings.find(r => r.userId === req.user.id);
-
-//     return {
-//       id: store.id,
-//       name: store.name,
-//       address: store.address,
-//       overallRating: avgRating ? avgRating.toFixed(1) : "No ratings",
-//       userRating: userRatingObj ? userRatingObj.rating : null
-//     };
-//   });
-
-//   res.json(result);
-// });
-
 // GET /api/user/stores with optional filtering by name and address
 router.get('/stores', auth(['USER']), async (req, res) => {
   const { name, address } = req.query;

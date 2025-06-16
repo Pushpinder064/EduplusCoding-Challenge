@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Attach prisma to req for easy access
+
 app.use((req, res, next) => { req.prisma = prisma; next(); });
 
 app.use('/api/auth', authRoutes);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import CreateStore from "./CreateStore"; // <-- Import the CreateStore form
+import CreateStore from "./CreateStore"; 
 import "./Stores.css";
 
 export default function Stores() {
@@ -23,7 +23,7 @@ export default function Stores() {
   return (
      <div className="stores-admin-container">
      
-      <CreateStore onStoreCreated={fetchStores} /> {/* <-- Add this line */}
+      <CreateStore onStoreCreated={fetchStores} /> 
 
       <div><h3>Search stores</h3></div>
       <div className="stores-filter-bar">

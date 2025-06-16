@@ -53,7 +53,7 @@ router.post('/stores', auth(['ADMIN']), async (req, res) => {
       data: {
         name,
         address,
-        ownerId: Number(ownerId) // <-- Convert to integer here!
+        ownerId: Number(ownerId) 
       }
     });
     res.json(store);
@@ -63,7 +63,7 @@ router.post('/stores', auth(['ADMIN']), async (req, res) => {
   }
 });
 
-// List stores (with filters)
+// List stores 
 router.get('/stores', auth(['ADMIN']), async (req, res) => {
   const { name, email, address } = req.query;
   const where = {};
@@ -88,7 +88,7 @@ router.get('/stores', auth(['ADMIN']), async (req, res) => {
   res.json(result);
 });
 
-// List users (with filters)
+// List users 
 router.get('/users', auth(['ADMIN']), async (req, res) => {
   const { name, email, address, role } = req.query;
   const where = {};

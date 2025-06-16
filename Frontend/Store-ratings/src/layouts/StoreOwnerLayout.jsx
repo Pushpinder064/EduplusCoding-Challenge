@@ -4,9 +4,9 @@ export default function StoreOwnerLayout() {
   const navigate = useNavigate();
 
   function handleLogout() {
-    // Clear your auth tokens here (localStorage, cookies, etc.)
+    
     localStorage.removeItem("token");
-    // Add any other cleanup logic needed
+    
     navigate("/auth/login");
   }
 

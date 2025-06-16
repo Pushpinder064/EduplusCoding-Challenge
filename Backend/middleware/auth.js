@@ -4,7 +4,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 module.exports = (roles = []) => {
   return async (req, res, next) => {
     const authHeader = req.headers.authorization;
-    console.log('🔐 Authorization Header:', authHeader);
+    console.log(' Authorization Header:', authHeader);
 
     if (!authHeader) return res.status(401).json({ error: 'No token' });
 
@@ -15,17 +15,17 @@ module.exports = (roles = []) => {
       console.log("My token is: ", token, " secret is: ", JWT_SECRET);
       console.log(jwt.verify(token, JWT_SECRET));
       const payload = jwt.verify(token, JWT_SECRET);
-      console.log('✅ Token Payload:', payload);
+      console.log('Token Payload:', payload);
       req.user = payload;
 
       if (roles.length && !roles.includes(payload.role)) {
-        console.log('⛔ Role not allowed:', payload.role);
+        console.log(' Role not allowed:', payload.role);
         return res.status(403).json({ error: 'Forbidden' });
       }
 
       next();
     } catch (err) {
-      console.log('❌ JWT Verification Error:', err.message);
+      console.log(' JWT Verification Error:', err.message);
       res.status(401).json({ error: 'Invalid token' });
     }
   };
